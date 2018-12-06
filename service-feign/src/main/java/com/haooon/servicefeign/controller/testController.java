@@ -13,7 +13,7 @@ public class testController {
     FServiceTest feightest;
 
     @RequestMapping(value = "/test")
-    public String sayHi(@RequestParam(required = false) String name) {
-        return feightest.testpage( name );
+    public String test(@RequestParam String name) {
+        return feightest.test( name );
     }
 }
