@@ -21,6 +21,9 @@
 <modules>
     <module>eureka-server</module>
     <module>service-test</module>
+    <module>service-feign</module>
+    <module>service-user</module>
+    <module>service-zuul</module>
 </modules>
 
 <properties>

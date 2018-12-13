@@ -19,7 +19,7 @@ public interface UserMapper {
 
     List<User> selectByExample(UserExample example);
 
-    User selectByUsername(@Param("username")String Username);
+    User selectByUsername(String username);
 
     int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
 
