@@ -1,11 +1,11 @@
-package com.haooon.serviceuser.service;
+package com.haooon.servicesys.service;
 
-import com.haooon.serviceuser.entity.User;
-import com.haooon.serviceuser.mapper.UserMapper;
-import com.haooon.serviceuser.params.LoginParam;
-import com.haooon.serviceuser.util.HaooonResponse;
-import com.haooon.serviceuser.util.MESSAGEUtil;
-import com.haooon.serviceuser.util.SHA256;
+import com.haooon.servicesys.entity.User;
+import com.haooon.servicesys.mapper.UserMapper;
+import com.haooon.servicesys.params.HParamLogin;
+import com.haooon.servicesys.util.HaooonResponse;
+import com.haooon.servicesys.util.MESSAGEUtil;
+import com.haooon.servicesys.util.SHA256;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class SUserLogin {
     @Autowired
     UserMapper userMapper;
 
-    public HaooonResponse userLogin(LoginParam paramUser){
+    public HaooonResponse userLogin(HParamLogin paramUser){
         HaooonResponse response = new HaooonResponse();
         User userFromDatabase = userMapper.selectByUsername(paramUser.getUsername());
         if(userFromDatabase == null) {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.haooon.serviceuser.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.haooon.serviceuser.entity.User" >
+<mapper namespace="com.haooon.servicesys.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.haooon.servicesys.entity.User" >
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List" >
     user_id, user_name, user_password, user_status, user_wrong_sign
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.haooon.serviceuser.entity.UserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.haooon.servicesys.entity.UserExample" >
     select
     <if test="distinct" >
       distinct
@@ -84,19 +84,19 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.haooon.serviceuser.entity.UserExample" >
+  <delete id="deleteByExample" parameterType="com.haooon.servicesys.entity.UserExample" >
     delete from USER_LOGIN
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.haooon.serviceuser.entity.User" >
+  <insert id="insert" parameterType="com.haooon.servicesys.entity.User" >
     insert into USER_LOGIN (user_id, user_name, user_password, 
       user_status, user_wrong_sign)
     values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
       #{userStatus,jdbcType=INTEGER}, #{userWrongSign,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.haooon.serviceuser.entity.User" >
+  <insert id="insertSelective" parameterType="com.haooon.servicesys.entity.User" >
     insert into USER_LOGIN
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -133,7 +133,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.haooon.serviceuser.entity.UserExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.haooon.servicesys.entity.UserExample" resultType="java.lang.Integer" >
     select count(*) from USER_LOGIN
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

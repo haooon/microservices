@@ -1,7 +1,8 @@
-package com.haooon.serviceuser.mapper;
+package com.haooon.servicesys.mapper;
 
-import com.haooon.serviceuser.entity.User;
-import com.haooon.serviceuser.entity.UserExample;
+import com.haooon.servicesys.entity.UserExample;
+import com.haooon.servicesys.entity.User;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

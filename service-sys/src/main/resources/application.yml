@@ -2,8 +2,14 @@ mybatis:
   mapper-locations: mapping/*.xml
   type-aliases-package: com.haooon.serviceuser.entity
 server:
-  port: 8762
+  port: 8763
 spring:
+  redis:
+    database: 0
+    password: 1413141352765276
+    port: 6379
+    host: 114.116.120.165
+    ssl: false
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root

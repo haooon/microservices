@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.haooon.serviceuser.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.haooon.serviceuser.entity.User" >
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
-    <result column="user_name" property="userName" jdbcType="VARCHAR" />
-    <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
-    <result column="user_status" property="userStatus" jdbcType="INTEGER" />
-    <result column="user_wrong_sign" property="userWrongSign" jdbcType="INTEGER" />
+<mapper namespace="com.haooon.serviceuser.mapper.OpRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.haooon.serviceuser.entity.OpRecord" >
+    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
+    <result column="OP_CLASS" property="opClass" jdbcType="VARCHAR" />
+    <result column="OP_TIME" property="opTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,16 +65,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    user_id, user_name, user_password, user_status, user_wrong_sign
+    USER_ID, OP_CLASS, OP_TIME
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.haooon.serviceuser.entity.UserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.haooon.serviceuser.entity.OpRecordExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from USER_LOGIN
+    from USER_OPERATE_RECORD
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -84,78 +82,60 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.haooon.serviceuser.entity.UserExample" >
-    delete from USER_LOGIN
+  <delete id="deleteByExample" parameterType="com.haooon.serviceuser.entity.OpRecordExample" >
+    delete from USER_OPERATE_RECORD
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.haooon.serviceuser.entity.User" >
-    insert into USER_LOGIN (user_id, user_name, user_password, 
-      user_status, user_wrong_sign)
-    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
-      #{userStatus,jdbcType=INTEGER}, #{userWrongSign,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.haooon.serviceuser.entity.OpRecord" >
+    insert into USER_OPERATE_RECORD (USER_ID, OP_CLASS, OP_TIME
+      )
+    values (#{userId,jdbcType=INTEGER}, #{opClass,jdbcType=VARCHAR}, #{opTime,jdbcType=TIMESTAMP}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.haooon.serviceuser.entity.User" >
-    insert into USER_LOGIN
+  <insert id="insertSelective" parameterType="com.haooon.serviceuser.entity.OpRecord" >
+    insert into USER_OPERATE_RECORD
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
-        user_id,
+        USER_ID,
       </if>
-      <if test="userName != null" >
-        user_name,
+      <if test="opClass != null" >
+        OP_CLASS,
       </if>
-      <if test="userPassword != null" >
-        user_password,
-      </if>
-      <if test="userStatus != null" >
-        user_status,
-      </if>
-      <if test="userWrongSign != null" >
-        user_wrong_sign,
+      <if test="opTime != null" >
+        OP_TIME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
         #{userId,jdbcType=INTEGER},
       </if>
-      <if test="userName != null" >
-        #{userName,jdbcType=VARCHAR},
+      <if test="opClass != null" >
+        #{opClass,jdbcType=VARCHAR},
       </if>
-      <if test="userPassword != null" >
-        #{userPassword,jdbcType=VARCHAR},
-      </if>
-      <if test="userStatus != null" >
-        #{userStatus,jdbcType=INTEGER},
-      </if>
-      <if test="userWrongSign != null" >
-        #{userWrongSign,jdbcType=INTEGER},
+      <if test="opTime != null" >
+        #{opTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.haooon.serviceuser.entity.UserExample" resultType="java.lang.Integer" >
-    select count(*) from USER_LOGIN
+  <select id="countByExample" parameterType="com.haooon.serviceuser.entity.OpRecordExample" resultType="java.lang.Integer" >
+    select count(*) from USER_OPERATE_RECORD
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update USER_LOGIN
+    update USER_OPERATE_RECORD
     <set >
       <if test="record.userId != null" >
-        user_id = #{record.userId,jdbcType=INTEGER},
+        USER_ID = #{record.userId,jdbcType=INTEGER},
       </if>
-      <if test="record.userName != null" >
-        user_name = #{record.userName,jdbcType=VARCHAR},
+      <if test="record.opClass != null" >
+        OP_CLASS = #{record.opClass,jdbcType=VARCHAR},
       </if>
-      <if test="record.userPassword != null" >
-        user_password = #{record.userPassword,jdbcType=VARCHAR},
-      </if>
-      <if test="record.userStatus != null" >
-        user_status = #{record.userStatus,jdbcType=INTEGER},
-      </if>
-      <if test="record.userWrongSign != null" >
-        user_wrong_sign = #{record.userWrongSign,jdbcType=INTEGER},
+      <if test="record.opTime != null" >
+        OP_TIME = #{record.opTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -163,17 +143,12 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update USER_LOGIN
-    set user_id = #{record.userId,jdbcType=INTEGER},
-      user_name = #{record.userName,jdbcType=VARCHAR},
-      user_password = #{record.userPassword,jdbcType=VARCHAR},
-      user_status = #{record.userStatus,jdbcType=INTEGER},
-      user_wrong_sign = #{record.userWrongSign,jdbcType=INTEGER}
+    update USER_OPERATE_RECORD
+    set USER_ID = #{record.userId,jdbcType=INTEGER},
+      OP_CLASS = #{record.opClass,jdbcType=VARCHAR},
+      OP_TIME = #{record.opTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <select id="selectByUsername" resultMap="BaseResultMap" parameterType="java.lang.String">
-    SELECT * FROM USER_LOGIN WHERE user_name = #{username, jdbcType=VARCHAR}
-  </select>
 </mapper>
