@@ -17,7 +17,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://114.116.120.165:30306/test_ecds?characterEncoding=utf-8
   application:
-    name: service-test
+    name: service-sys
 eureka:
   client:
     serviceUrl:

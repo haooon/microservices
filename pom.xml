@@ -24,6 +24,7 @@
     <module>service-feign</module>
     <module>service-user</module>
     <module>service-zuul</module>
+    <module>service-sys</module>
 </modules>
 
 <properties>

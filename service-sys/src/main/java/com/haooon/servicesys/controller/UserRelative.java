@@ -2,10 +2,9 @@ package com.haooon.servicesys.controller;
 
 import com.haooon.servicesys.params.HParamMail;
 import com.haooon.servicesys.params.HParamOPRecord;
-import com.haooon.servicesys.service.SMail;
-import com.haooon.servicesys.service.SOpRecord;
+import com.haooon.servicesys.service.impl.MailImpl;
+import com.haooon.servicesys.service.impl.OPRecordImpl;
 import com.haooon.servicesys.util.HaooonResponse;
-import com.haooon.servicesys.service.SUserLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,11 +14,11 @@ public class UserRelative {
 
     // 操作记录服务
     @Autowired
-    SOpRecord record;
+    OPRecordImpl record;
 
     // 邮件服务
     @Autowired
-    SMail mail;
+    MailImpl mail;
 
     /**
      * 接收储存用户操作请求
@@ -36,6 +35,7 @@ public class UserRelative {
     public HaooonResponse getUser(@RequestBody HParamOPRecord param) {
         return record.save(param);
     }
+
 
     /**
      * 发送邮件

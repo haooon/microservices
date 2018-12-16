@@ -6,7 +6,7 @@
 
 
     <!--指定数据库的jdbc驱动jar包的位置-->
-    <classPathEntry location="C:\Users\haooon\.m2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
+    <classPathEntry location="/Users/shahaoran/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar"/>
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
 
@@ -38,11 +38,7 @@
         </javaClientGenerator>
 
         <!--生成对应表及类名-->
-        <table tableName="USER_LOGIN" domainObjectName="User" enableCountByExample="true"
-               enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
-        </table>
-        <table tableName="USER_OPERATE_RECORD" domainObjectName="OpRecord" enableCountByExample="true"
+        <table tableName="USER_INFO" domainObjectName="UserInfo" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">
         </table>

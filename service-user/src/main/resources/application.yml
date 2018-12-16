@@ -3,6 +3,16 @@ mybatis:
   type-aliases-package: com.haooon.serviceuser.entity
 server:
   port: 8762
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -11,7 +21,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://114.116.120.165:30306/test_ecds?characterEncoding=utf-8
   application:
-    name: service-test
+    name: service-user
 eureka:
   client:
     serviceUrl:

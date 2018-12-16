@@ -6,6 +6,8 @@ import com.haooon.serviceuser.util.HaooonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 
 @RestController
 public class UserLoginController {
@@ -14,8 +16,12 @@ public class UserLoginController {
     SUserLogin login_service;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public HaooonResponse getUser(@RequestBody LoginParam param) {
-//        return "123123";
+    public HaooonResponse login(@RequestBody LoginParam param) {
         return login_service.userLogin(param);
+    }
+
+    @RequestMapping(value = "/applyforpassword", method = RequestMethod.GET)
+    public HaooonResponse applypassword(HttpServletRequest request) {
+        return login_service.applyPassword(request);
     }
 }
