@@ -11,7 +11,8 @@ public class HytrisSys implements FSys {
     public HaooonResponse mail(Object param) {
         HaooonResponse response = new HaooonResponse();
         response.status = "error";
-        response.body = "sorry service is busy now";
+        response.body = "邮件系统繁忙";
+        response.code = "SERVICEBUSY";
         return response;
     }
 }

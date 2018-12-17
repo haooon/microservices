@@ -22,7 +22,9 @@ public class MsgComposer {
         mailContent += jumpLink;
         mailContent += "'>确认本人操作，点击此链接跳转登录</a><div style='padding-top:0px;'><a href='";
         mailContent += freeze;
-        mailContent += "'>非本人操作，点击此链接临时冻结账户</a></div></div><img src='http://39.105.99.88:9876/identifystamp.png' style='-webkit-transform:rotate(-15deg);margin:-180px 0 0 300px;width:150px;height:150px;'></div></div>";
+        mailContent += "'>非本人操作，点击此链接临时冻结账户</a><strong>";
+        mailContent += jumpLink;
+        mailContent += "</strong></div></div><img src='http://39.105.99.88:9876/identifystamp.png' style='-webkit-transform:rotate(-15deg);margin:-180px 0 0 300px;width:150px;height:150px;'></div></div>";
         return mailContent;
     }
 }

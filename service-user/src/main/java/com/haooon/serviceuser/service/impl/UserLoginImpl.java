@@ -35,12 +35,16 @@ public class UserLoginImpl implements SUserLogin {
         User userFromDatabase = userMapper.selectByUsername(paramUser.getUsername());
         if(userFromDatabase == null) {
             response.status = "error";
+            response.code = "CANTFOUNDUSER";
             response.body = MESSAGEUtil.MSG_LOGIN_WRONGUSERNAME;
-        }else if(SHA256.encrypt(paramUser.getPassword()).equals(userFromDatabase.getUserPassword())){
+        }
+//        else if(SHA256.encrypt(paramUser.getPassword()).equals(userFromDatabase.getUserPassword())){
+        else if(paramUser.getPassword().equals(userFromDatabase.getUserPassword())){
             response.status = "success";
-            response.body = userFromDatabase.getUserName() + " " + userFromDatabase.getUserPassword();
+            response.body = "欢迎：" + userFromDatabase.getUserName();
         }else {
             response.status = "error";
+            response.code = "WRONGPASSWORD";
             response.body = MESSAGEUtil.MSG_LOGIN_WRONGPASSWORD;
         }
         return response;
@@ -54,6 +58,7 @@ public class UserLoginImpl implements SUserLogin {
         if(user == null){
             response.status = "error";
             response.body = "没有查到用户：" + username + "，请检查用户名";
+            response.code = "CANTFOUNDUSER";
             return response;
         }else {
             UUID uuid = UUID.randomUUID();
