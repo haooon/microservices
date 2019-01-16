@@ -19,7 +19,7 @@ spring:
     username: root
     password: 14135276
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://114.116.120.165:30306/test_ecds?characterEncoding=utf-8
+    url: jdbc:mysql://114.116.125.40:33060/test_ecds?characterEncoding=utf-8
   application:
     name: service-user
 eureka:

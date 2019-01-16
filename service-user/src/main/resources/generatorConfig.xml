@@ -18,7 +18,7 @@
 
         <!--数据库链接地址账号密码-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://114.116.120.165:30306/test_ecds?characterEncoding=UTF-8"
+                        connectionURL="jdbc:mysql://114.116.125.40:33060/test_ecds?characterEncoding=UTF-8"
                         userId="root"
                         password="14135276">
         </jdbcConnection>
