@@ -1,11 +1,9 @@
 spring:
   cloud:
     consul:
-      host: 127.0.0.1
-      port: 8500
+      host: 39.106.56.231
+      port: 10000
       discovery:
-        healthCheckUrl: http://${spring.cloud.consul.host}:${server.port}/actuator/health
-        healthCheckInterval: 15s
         instance-id: consul-miya
   application:
     name: consul-miya
