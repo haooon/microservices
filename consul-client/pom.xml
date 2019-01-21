@@ -60,6 +60,7 @@
 							<include>${project.build.finalName}.jar</include>
 						</resource>
 					</resources>
+					<serverId>my-aliyun-docker-registry</serverId>
 				</configuration>
 			</plugin>
 		</plugins>
